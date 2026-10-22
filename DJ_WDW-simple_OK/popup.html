@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Claude usage</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="pct"><span id="pct">–</span><small>%</small></div>
+    <div class="sub" id="sub">Loading</div>
+  </header>
+
+  <div class="limit" id="limit" role="alert" hidden></div>
+  <p class="hint acct" id="acct" hidden></p>
+
+  <div class="bar" id="bar" role="progressbar" aria-label="Session usage" aria-valuemin="0" aria-valuemax="100">
+    <i id="fill"></i><b style="left:70%"></b><b style="left:90%"></b>
+  </div>
+  <p class="hint" id="left" hidden></p>
+
+  <div id="meters"></div>
+
+  <section>
+    <h2>Recent messages</h2>
+    <ul id="list"><li class="empty">Send a message on claude.ai to start tracking.</li></ul>
+  </section>
+
+  <details>
+    <summary>Settings</summary>
+    <form id="f">
+      <label class="chk"><input type="checkbox" name="showWidget"> Show the meter on claude.ai</label>
+      <label class="chk"><input type="checkbox" name="notifyOnLimit"> Notify me when I run out of usage</label>
+      <label class="chk"><input type="checkbox" name="notify"> Notify me when my session resets</label>
+      <label>Only if I had used at least (%)<input type="number" name="notifyAt" min="1" max="100" step="1"></label>
+      <div class="btns">
+        <button type="submit">Save settings</button>
+        <button type="button" id="refreshBtn" class="ghost">Refresh now</button>
+        <button type="button" id="clearBtn" class="ghost">Clear history</button>
+      </div>
+    </form>
+  </details>
+
+  <script src="popup.js"></script>
+</body>
+</html>
